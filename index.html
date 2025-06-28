@@ -50,6 +50,61 @@
             overlay.remove();
         });
     </script>
+  
+<div id="credit-box">
+  <button id="toggle-credit" onclick="toggleCredit()">＋</button>
+  <div id="credit-text">
+    このページは「鏡音リン・レン」を利用しています。<br>
+    詳細は <a href="https://piapro.jp/" target="_blank">piapro(ピアプロ)公式サイト</a>
+  </div>
+</div>
 
+<style>
+  #credit-box {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+    z-index: 999;
+  }
+
+  #toggle-credit {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  #credit-text {
+    display: none;
+    margin-top: 8px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    max-width: 250px;
+    line-height: 1.4;
+  }
+
+  #credit-text a {
+    color: #66f;
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  function toggleCredit() {
+    const creditText = document.getElementById('credit-text');
+    const button = document.getElementById('toggle-credit');
+
+    const isHidden = creditText.style.display === 'none';
+    creditText.style.display = isHidden ? 'block' : 'none';
+    button.textContent = isHidden ? '−' : '＋';
+  }
+</script>
+  
 </body>
 </html>
