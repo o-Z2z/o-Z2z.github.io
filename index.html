@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>project_copy to</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+    video {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+        #clickOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 10;
+        }
+  </style>
+</head>
+<body>
+
+    <div id="clickOverlay">Click!</div>
+
+    <video id="loopVideo" autoplay loop muted playsinline>
+        <source src="krk.mp4" type="video/mp4">
+        お使いのブラウザでは video タグがサポートされていません。
+    </video>
+
+    <script>
+        const video = document.getElementById('loopVideo');
+        const overlay = document.getElementById('clickOverlay');
+
+        overlay.addEventListener('click', () => {
+            video.muted = false;
+            video.play();
+            overlay.remove();
+        });
+    </script>
+
+</body>
+</html>
